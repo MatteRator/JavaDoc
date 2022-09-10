@@ -9,6 +9,7 @@ WORKDIR /app
 
 COPY .mvn/ .mvn
 COPY mvnw pom.xml ./
+RUN chmod 755 mvnw
 #RUN spring-javaformat:apply
 #RUN find . -type f -print0 | xargs -0 dos2unix
 #RUN dos2unix ./app/src/
