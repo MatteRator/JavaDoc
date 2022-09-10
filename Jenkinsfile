@@ -2,7 +2,8 @@ node {
     checkout scm
     def testImage = docker.build("javadoc", "./") 
 
+
     testImage.inside {
-        sh 'make test'
+        sh 'echo "From inside container"'
     }
 }
