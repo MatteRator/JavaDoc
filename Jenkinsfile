@@ -1,7 +1,7 @@
 pipeline {
-    agent any
     stages {
-      agent {
+            
+        stage('DockerBuild') {
             node {
                   checkout scm
                   def testImage = docker.build("javadoc", "./") 
@@ -10,12 +10,6 @@ pipeline {
                   sh 'echo "From inside container"'
                    }
             }
-      }
-        stage('DockerBuild') {
-            
-                  steps ('Build file'){
-                  sh 'echo "Just one success pls"'
-                  }
         }
     }
 }
