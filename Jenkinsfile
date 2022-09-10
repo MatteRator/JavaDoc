@@ -1,9 +1,18 @@
-node {
-    checkout scm
-    def testImage = docker.build("javadoc", "./") 
-    docker.image('javadoc').withRun('-p 8000:8000')
+pipeline {
+    agent any
+    stages {
+        stage('DockerBuild') {
+            node {
+                  checkout scm
+                  def testImage = docker.build("javadoc", "./") 
 
-    testImage.inside {
-        sh 'echo "From inside container"'
+                  testImage.inside {
+                  sh 'echo "From inside container"'
+                   }
+            }
+                  steps ('Build file'){
+                  sh 'echo "Just one success pls"'
+                  }
+        }
     }
 }
