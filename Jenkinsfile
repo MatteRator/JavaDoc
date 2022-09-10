@@ -1,15 +1,20 @@
 pipeline {
-    stages {
-            
-        stage('DockerBuild') {
-            node {
-                  checkout scm
-                  def testImage = docker.build("javadoc", "./") 
+      agents none
+      stages {
+            stage('DockerBuild') {
+                  agent{
+                        node {
+                        checkout scm
+                        def testImage = docker.build("javadoc", "./") 
 
-                  testImage.inside {
-                  sh 'echo "From inside container"'
-                   }
+                        testImage.inside {
+                        sh 'echo "From inside container"'
+                        }
+                        }
+                  }
+                  steps{
+                        sh 'echo "hello"'
+                  }
             }
-        }
-    }
+      }
 }
