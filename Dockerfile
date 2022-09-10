@@ -13,7 +13,7 @@ COPY mvnw pom.xml ./
 #RUN find . -type f -print0 | xargs -0 dos2unix
 #RUN dos2unix ./app/src/
 #RUN dos2unix ./mvnw
-RUN sudo ./mvnw dependency:resolve
+RUN ./mvnw dependency:resolve
 COPY src ./src
 
 CMD ["./mvnw", "spring-boot:run"]
