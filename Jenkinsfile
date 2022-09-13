@@ -9,7 +9,7 @@ pipeline {
                   }
                   steps{
                         sh "chmod 755 mvnw"
-                        sh "./mvnw dependency:resolve"
+                        sh "mvn clean install"
                   }
             }
       }
