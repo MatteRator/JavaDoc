@@ -1,9 +1,10 @@
- node {
- 
-      checkout scm
-      def testImage = docker.build("javadoc", "./") 
-
-      testImage.inside {
-            sh 'echo "From inside container"'
+pipeline {
+      agent any
+      stages {
+            stage('Maven build') {
+                  steps{
+                        sh "./mvnw"
+                  }
             }
       }
+}

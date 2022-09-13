@@ -1,19 +1,9 @@
 pipeline {
-      agents none
+      agent any
       stages {
-            stage('DockerBuild') {
-                  agent{
-                        node("dockerfile build") {
-                        checkout scm
-                        def testImage = docker.build("javadoc", "./") 
-
-                        testImage.inside {
-                        sh 'echo "From inside container"'
-                        }
-                        }
-                  }
+            stage('Maven build') {
                   steps{
-                        sh 'echo "hello"'
+                        sh "./mvnw"
                   }
             }
       }
