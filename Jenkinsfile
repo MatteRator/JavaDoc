@@ -4,7 +4,7 @@ pipeline {
             stage('Maven build') {
                   steps{
                         sh "chmod 755 mvnw"
-                        sh "./mvnw"
+                        sh "./mvnw dependency:resolve"
                   }
             }
       }
