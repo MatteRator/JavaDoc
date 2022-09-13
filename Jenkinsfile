@@ -4,11 +4,11 @@ pipeline {
             stage('Maven build') {
                   agent{
                         docker{
-                              image 'maven:3.5.0'
+                              image 'maven:3.8'
                         }
                   }
                   steps{
-                        sh "chmod 755 mvnw"
+                        //sh "chmod 755 mvnw"
                         sh "mvn clean install"
                   }
             }
