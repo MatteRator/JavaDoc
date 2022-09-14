@@ -8,7 +8,6 @@ pipeline {
                         }
                   }
                   steps{
-                        //sh "chmod 755 mvnw"
                         sh "mvn clean install"
                   }
             }
