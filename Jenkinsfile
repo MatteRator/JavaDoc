@@ -4,7 +4,7 @@ pipeline {
             stage('Maven build') {
                   agent{
                         docker{
-                              image 'maven:latest'
+                              image 'maven:8.6'
                         }
                   }
                   steps{
