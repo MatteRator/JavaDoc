@@ -21,11 +21,11 @@ pipeline {
                   }
             }
 
-            stage('Docker run'){
+            stage('Docker push'){
                   agent any
                   steps{
-                        sh 'docker run -it -d -p 8000:8000 matts/spring-petclinic:latest'
-                  }
+        	            sh "docker login -u ${env.dockerHubUser} -p ${env.dockerHubPassword}"
+                        sh 'docker push shanem/spring-petclinic:latest'
             }
       }
 }
