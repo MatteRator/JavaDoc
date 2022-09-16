@@ -25,6 +25,7 @@ pipeline {
                   agent any
                   steps{
                         sh 'docker run -it -d -p 8000:8000 matts/spring-petclinic:latest'
+                  }
             }
       }
 }
