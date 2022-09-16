@@ -21,14 +21,10 @@ pipeline {
                   }
             }
 
-            stage('Docker push'){
+            stage('Docker run'){
                   agent any
                   steps{
-                        withCredentials([usernamePassword(credentialsId: 'dockerhub', passwordVariable: 'PASSWORD', usernameVariable: 'USERNAME')]){
-                              sh "docker login -u ${env.dockerHubUser} -p ${env.dockerHubPassword}"
-                              sh 'docker push matts/spring-clinic:latest'
-                        }
-                  }
+                        sh 'docker run -it -d -p 8000:8000 matts/spring-petclinic:latest'
             }
       }
 }
