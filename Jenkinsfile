@@ -24,7 +24,7 @@ pipeline {
             stage('Docker push'){
                   agent any
                   steps{
-        	            sh "docker login -u ${env.dockerHubUser} -p ${env.dockerHubPassword}"
+        	            sh "echo ${env.dockerHubPassword} | docker login -u ${env.dockerHubUser} --password-stdin"
                         sh 'docker push shanem/spring-petclinic:latest'
                   }
             }
