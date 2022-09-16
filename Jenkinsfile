@@ -16,7 +16,7 @@ pipeline {
             stage('Docker Build'){
                   agent any
                   steps {
-                        sh 'docker build -t matts/spring-petclinic:latest .'
+                        sh 'docker build -t matterator/spring-petclinic:latest .'
 
                   }
             }
@@ -24,8 +24,8 @@ pipeline {
             stage('Docker push'){
                   agent any
                   steps{
-        	            sh "echo ${env.dockerHubPassword} | docker login -u ${env.dockerHubUser} --password-stdin"
-                        sh 'docker push shanem/spring-petclinic:latest'
+        	            sh "echo ${env.dockerHubPassword} | docker login hub.docker.com -u ${env.dockerHubUser} --password-stdin"
+                        sh 'docker push matterator/javadocdevelop:latest'
                   }
             }
       }
