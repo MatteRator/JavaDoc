@@ -24,7 +24,7 @@ pipeline {
             stage('Docker push'){
                   agent any
                   steps{         
-        	            sh "echo ${env.dockerHubPassword} | docker login -u ${env.dockerHubUser} --password-stdin" //https://registry.hub.docker.com/matterator/javadocdevelop"
+        	            //sh "echo ${env.dockerHubPassword} | docker login -u ${env.dockerHubUser} --password-stdin" //https://registry.hub.docker.com/matterator/javadocdevelop"
                         sh 'docker push matterator/javadocdevelop:latest'  
                   }
             }
