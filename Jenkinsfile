@@ -24,7 +24,7 @@ pipeline {
             stage('Docker push'){
                   agent any
                   steps{         
-                        sh "echo 'Linux' | sudo -S echo 'hello'"
+                        sh "echo 'jinkins' | sudo -S echo 'hello'"
         	            sh "echo ${env.dockerHubPassword} | sudo docker login -u ${env.dockerHubUser} --password-stdin docker.io"
                         sh 'docker push matterator/javadocdevelop:latest'  
                   }
