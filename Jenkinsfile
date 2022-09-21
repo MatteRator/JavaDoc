@@ -8,8 +8,8 @@ pipeline {
                         }
                   }
                   steps{
-                        sh 'unset MAVEN_CONFIG && env && ./mvnw effective-settings'
                         sh 'chmod 755 mvnw'
+                        sh 'unset MAVEN_CONFIG && env && ./mvnw effective-settings'
                         sh "./mvnw package"
                         //sh "mvn clean install -Dcheckstyle.skip"
                   }
