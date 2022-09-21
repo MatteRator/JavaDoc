@@ -26,8 +26,8 @@ pipeline {
                   agent any
                   steps{         
                         sh 'docker logout'
-        	            sh "echo ${env.dockerHubPassword} | docker login -u ${env.dockerHubUser} --password-stdin docker.io"
-                        sh 'docker push matterator/javadocdevelop:latest'  
+        	            sh 'echo ${env.dockerHubPassword} | docker login -u ${env.dockerHubUser} --password-stdin'
+                        sh 'docker push matterator/javadocdevelop:latest'
                   }
             }
       }
