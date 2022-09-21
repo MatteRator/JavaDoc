@@ -8,7 +8,7 @@ pipeline {
                         }
                   }
                   steps{
-
+                        sh 'chmod 755 mvnw'
                         sh "./mvnw package"
                         //sh "mvn clean install -Dcheckstyle.skip"
                   }
