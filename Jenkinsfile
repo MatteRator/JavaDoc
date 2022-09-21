@@ -17,7 +17,7 @@ pipeline {
             stage('Docker Build'){
                   agent any
                   steps {
-                        sh 'docker build -t matterator/javadocdevelop:latest .'
+                        sh 'docker build -t matterator/javadoc:latest .'
 
                   }
             }
@@ -27,7 +27,7 @@ pipeline {
             //       steps{         
             //             sh "echo 'jinkins' | sudo -S echo 'hello'"
         	//             sh "echo ${env.dockerHubPassword} | sudo docker login -u ${env.dockerHubUser} --password-stdin docker.io"
-            //             sh 'docker push matterator/javadocdevelop:latest'  
+            //             sh 'docker push matterator/javadoc:latest'  
             //       }
             // }
       }
