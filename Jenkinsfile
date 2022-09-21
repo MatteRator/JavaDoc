@@ -26,7 +26,7 @@ pipeline {
                   agent any
                   steps{         
                         sh 'docker logout'
-        	            sh "echo ${env.dockerHubPassword} | sudo docker login -u ${env.dockerHubUser} --password-stdin docker.io"
+        	            sh "echo ${env.dockerHubPassword} | docker login -u ${env.dockerHubUser} --password-stdin docker.io"
                         sh 'docker push matterator/javadocdevelop:latest'  
                   }
             }
