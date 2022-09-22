@@ -24,10 +24,14 @@ pipeline {
 
             stage('Docker push'){
                   agent any
-                  steps{         
-                        sh 'docker logout'
-        	            sh 'echo ${env.dockerHubPassword} | docker login -u ${env.dockerHubUser} --password-stdin'
-                        sh 'docker push matterator/javadocdevelop:latest'
+                  steps{    
+                        withDockerRegistry(credentialsId: 'dockerhub') {
+                              // some block
+                              sh 'docker push matterator/javadocdevelop:latest'
+                        }     
+                        // sh 'docker logout'
+        	            // sh "echo ${env.dockerHubPassword} | docker login -u ${env.dockerHubUser} --password-stdin"
+                        // sh 'docker push matterator/javadocdevelop:latest'
                   }
             }
       }
