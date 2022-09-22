@@ -25,7 +25,7 @@ pipeline {
             stage('Docker push'){
                   agent any
                   steps{    
-                        withDockerRegistry(credentialsId: 'dockerhub') {
+                        withDockerRegistry(credentialsId: 'dockerhub', url: "") {
                               // some block
                               sh 'docker push matterator/javadocdevelop:latest'
                         }     
