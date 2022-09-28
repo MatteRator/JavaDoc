@@ -10,8 +10,6 @@ pipeline {
                   steps{
                         sh 'chmod 755 mvnw'
                         sh 'unset MAVEN_CONFIG && env && ./mvnw package -Dcheckstyle.skip'
-                        //sh "./mvnw package"
-                        //sh "mvn clean install -Dcheckstyle.skip"
                   }
             }
             stage('Docker Build'){
@@ -29,10 +27,8 @@ pipeline {
                               // some block
                               sh 'docker push matterator/javadocdevelop:latest'
                         }     
-                        // sh 'docker logout'
-        	            // sh "echo ${env.dockerHubPassword} | docker login -u ${env.dockerHubUser} --password-stdin"
-                        // sh 'docker push matterator/javadocdevelop:latest'
                   }
             }
+
       }
 }
